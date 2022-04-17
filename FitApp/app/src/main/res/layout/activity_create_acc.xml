@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/create_acc_main_sv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:contentDescription="@string/create_acc_sv">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/create_acc_back"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tos_back" />
+
+        <TextView
+            android:id="@+id/create_acc_main_lbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="@string/create_acc_lbl"
+            android:textSize="34sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="48dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/create_acc_fn_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:autofillHints="name"
+                android:ems="10"
+                android:hint="@string/create_acc_fn"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColorHint="@android:color/secondary_text_light"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/create_acc_ln_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:autofillHints="name"
+                android:ems="10"
+                android:hint="@string/create_acc_ln"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColorHint="@android:color/secondary_text_light"
+                tools:ignore="TextContrastCheck" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/create_acc_em_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:autofillHints="emailAddress"
+            android:ems="10"
+            android:hint="@string/create_acc_em"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:textColorHint="@android:color/secondary_text_light" />
+
+        <EditText
+            android:id="@+id/create_acc_cem_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="@string/create_acc_cem"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:textColorHint="@android:color/secondary_text_light"
+            tools:ignore="TextContrastCheck" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/create_acc_pw_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/create_acc_pw"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:textColorHint="@android:color/secondary_text_light"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/create_acc_cpw_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/create_acc_cpw"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:textColorHint="@android:color/secondary_text_light"
+                tools:ignore="TextContrastCheck" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/create_acc_create_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="210dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:minHeight="55dp"
+            android:text="@string/create_acc_btn"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</ScrollView>

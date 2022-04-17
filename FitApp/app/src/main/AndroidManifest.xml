@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fitgroup.fitpower" >
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <application
+        android:fullBackupOnly="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FitPower"
+        android:allowBackup="true">
+        <activity android:name=".login.TitleActivity" android:label="Fitness Rick" android:theme="@style/Theme.FitPower"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".login.SignInActivity" android:label="Sign In" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".login.TOSActivity" android:label="Terms of Service" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".login.CreateAccActivity" android:label="Create Account" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.HomeActivity" android:label="Home" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.workout.WorkoutMainActivity" android:label="Workout" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.workout.WorkoutNewActivity" android:label="New Workout" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.gym.GymMainActivity" android:label="My Gyms" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.gym.NewGymActivity" android:label="New Gym" android:theme="@style/Theme.FitPower"
+        android:exported="true"/>
+        <activity android:name=".main.routine.RoutineActivity" android:label="My Routines" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.routine.NewRoutineActivity" android:label="New Routines" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.split.SplitActivity" android:label="My Splits" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.split.NewSplitActivity" android:label="New Split" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.StatsActivity" android:label="Stats" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.calendar.CalendarActivity" android:label="Calendar" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.calendar.DailyCalendar" android:label="Daily Calendar" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.TrainingActivity" android:label="Personal Training" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.ScienceActivity" android:label="Scientific Information" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+        <activity android:name=".main.SettingsActivity" android:label="Scientific Information" android:theme="@style/Theme.FitPower"
+            android:exported="true"/>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2973757805140284~8277707047"/>
+    </application>
+
+</manifest>

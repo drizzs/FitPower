@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/new_gym_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/new_gym_msv">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/gym_new_lbl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:text="@string/gym_new"
+                android:textSize="34sp" />
+
+            <EditText
+                android:id="@+id/new_gym_name_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:ems="10"
+                android:hint="@string/new_gym_f1_name"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColorHint="@android:color/secondary_text_light"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/new_gym_adr_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/new_gym_f2_sa"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:textColorHint="@android:color/secondary_text_light"/>
+
+                <EditText
+                    android:id="@+id/new_gym_apt_field"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/new_gym_f3_apt"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:maxHeight="48dp"
+                    android:minHeight="48dp"
+                    android:textColorHint="@android:color/secondary_text_light"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/new_gym_city_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/new_gym_f4_city"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:maxHeight="48dp"
+                    android:minHeight="48dp"
+                    android:textColorHint="@android:color/secondary_text_light"/>
+
+                <EditText
+                    android:id="@+id/new_gym_pc_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/new_gym_f5_pc"
+                    android:importantForAutofill="no"
+                    android:inputType="textPostalAddress"
+                    android:maxHeight="48dp"
+                    android:minHeight="48dp"
+                    android:textColorHint="@android:color/secondary_text_light"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/new_gym_cntry_sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/new_gym_prov_spin_lbl"
+                    android:minHeight="48dp" />
+
+                <Spinner
+                    android:id="@+id/new_gym_prov_sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/new_gym_cntry_spin_lbl"
+                    android:minHeight="48dp" />
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/new_gym_priv_cb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/new_gym_cb_priv" />
+
+            <CheckBox
+                android:id="@+id/new_gym_fav_cb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/new_gym_cb_fav" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center_vertical"
+                android:minHeight="48dp"
+                android:text="@string/new_gym_lbl_added"
+                android:textSize="24sp" />
+
+            <HorizontalScrollView
+                android:id="@+id/gym_eq_add_list"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/new_gym_easv"
+                android:minHeight="100dp">
+
+                <LinearLayout
+                    android:id="@+id/new_gym_add_lo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"></LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center_vertical"
+                android:minHeight="48dp"
+                android:text="@string/new_gym_lbl_listed"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/new_gym_eq_srch_field"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/new_gym_f6_srch"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:maxHeight="48dp"
+                    android:minHeight="48dp"
+                    android:textColorHint="@android:color/secondary_text_light"/>
+            </LinearLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/new_gym_eq_sv"
+                android:layout_width="match_parent"
+                android:layout_height="340dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/new_gym_esv"
+                android:minHeight="340dp">
+
+                <LinearLayout
+                    android:id="@+id/new_gym_eq_lo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </androidx.core.widget.NestedScrollView>
+
+            <Button
+                android:id="@+id/gym_add_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="260dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:minHeight="55dp"
+                android:text="@string/new_gym_btn_add"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/new_gym_nav"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/drawer_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

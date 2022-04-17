@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_home_main" android:icon="@drawable/ic_home" android:title="@string/menu_home"/>
+        <item android:id="@+id/nav_gym_main" android:icon="@drawable/ic_gym" android:title="@string/gym_mygyms"/>
+        <item android:id="@+id/nav_workouts_main" android:icon="@drawable/ic_workout" android:title="@string/workouts_label"/>
+        <item android:id="@+id/nav_routines_main" android:icon="@drawable/ic_routine" android:title="@string/routines_label"/>
+        <item android:id="@+id/nav_split_main" android:icon="@drawable/ic_split" android:title="@string/split_label"/>
+        <item android:id="@+id/nav_food_main" android:icon="@drawable/ic_food" android:title="@string/mealplan_lbl"/>
+        <item android:id="@+id/nav_calendar_main" android:icon="@drawable/ic_calendar" android:title="@string/calendar_label"/>
+        <item android:id="@+id/nav_stats_main" android:icon="@drawable/ic_stats" android:title="@string/stats_label"/>
+        <item android:id="@+id/nav_training_main" android:icon="@drawable/ic_training" android:title="@string/training_label"/>
+        <item android:id="@+id/nav_science_main" android:icon="@drawable/ic_science" android:title="@string/science_label"/>
+        <item android:id="@+id/nav_settings_main" android:icon="@drawable/ic_settings" android:title="@string/settings_label"/>
+        <item android:id="@+id/nav_logout_main" android:icon="@drawable/ic_settings" android:title="@string/menu_logout_label"/>
+    </group>
+</menu>

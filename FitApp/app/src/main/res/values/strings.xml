@@ -1,0 +1,189 @@
+<resources>
+    <string name="app_name">Fitness Rick</string>
+    <string name="create_acc_lbl">Create Account</string>
+    <string name="sign_in_btn">Sign In</string>
+    <string name="sign_in_btn_text">Sign In</string>
+    <string name="sign_in_username_label">Username</string>
+    <string name="sign_in_password_label">Password</string>
+    <string name="sn_tos_label">Terms of Service</string>
+    <string name="sn_tos_accept">I accept above Terms of Service</string>
+    <string name="sn_tos_btn">Continue</string>
+    <string name="sn_tos_tos">Terms of Service here!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</string>
+    <string name="mm_jan">January</string>
+    <string name="mm_feb">February</string>
+    <string name="mm_mar">March</string>
+    <string name="mm_apr">April</string>
+    <string name="mm_may">May</string>
+    <string name="mm_jun">June</string>
+    <string name="mm_jly">July</string>
+    <string name="mm_aug">August</string>
+    <string name="mm_sep">September</string>
+    <string name="mm_oct">October</string>
+    <string name="mm_nov">November</string>
+    <string name="mm_dec">December</string>
+    <string name="mm_jan_sf">Jan</string>
+    <string name="mm_feb_sf">Feb</string>
+    <string name="mm_mar_sf">Mar</string>
+    <string name="mm_apr_sf">Apr</string>
+    <string name="mm_may_sf">May</string>
+    <string name="mm_jun_sf">Jun</string>
+    <string name="mm_jly_sf">Jly</string>
+    <string name="mm_aug_sf">Aug</string>
+    <string name="mm_sep_sf">Sep</string>
+    <string name="mm_oct_sf">Oct</string>
+    <string name="mm_nov_sf">Nov</string>
+    <string name="mm_dec_sf">Dec</string>
+    <string name="workouts_label">Workouts</string>
+    <string name="calendar_label">Calendar</string>
+    <string name="daily_calendar_label">Daily Calendar</string>
+    <string name="split_label">Split</string>
+    <string name="gym_mygyms">My Gyms</string>
+    <string name="gym_new">New Gym</string>
+    <string name="stats_label">Stats</string>
+    <string name="science_label">Science</string>
+    <string name="training_label">Personal Training</string>
+    <string name="settings_label">Settings</string>
+    <string name="menu_logout_label">Logout</string>
+    <string name="gym_new_eq">Add Equipment</string>
+    <string name="nav_profile_name">RandomName</string>
+    <string name="nav_profile_email">random@mailinator.com</string>
+    <string-array name="dropdown_nav_main">
+        <item>My Gym</item>
+        <item>Workouts/Exercises</item>
+        <item>Routines</item>
+        <item>Split Setup</item>
+        <item>Calendar</item>
+        <item>Stats</item>
+        <item>Settings</item>
+        <item>Logout</item>
+    </string-array>
+    <string name="title_activity_drawer_main">activity_drawer_main</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="routines_label">Routines</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="gymcard_equip">Equipment</string>
+    <string name="gymcard_equiplist">Equipment List</string>
+    <string name="nav_drawer_open">Open navigation drawer</string>
+    <string name="nav_drawer_close">Close navigation drawer</string>
+    <string name="newgym_card_equip">Equipment Icon</string>
+    <string name="newgym_card_placeholder">PlaceHolder</string>
+    <string name="new_gym_msv">Main Scroll View</string>
+    <string name="new_gym_esv">Equipment List Scroll View</string>
+    <string name="new_gym_easv">Equipment Added Scroll View</string>
+    <string name="new_gym_f1_name">Gym Name</string>
+    <string name="new_gym_f2_sa">Street Address</string>
+    <string name="new_gym_f3_apt">Suite/Apt</string>
+    <string name="new_gym_f4_city">City</string>
+    <string name="new_gym_f5_pc">Postal/Zip Code</string>
+    <string name="new_gym_f6_srch">Search</string>
+    <string name="new_gym_lbl_added">List of added Equipment:</string>
+    <string name="new_gym_lbl_listed">List of Equipment Available:</string>
+    <string name="new_gym_cb_priv">Check if you wish to make this gym Public</string>
+    <string name="new_gym_cb_fav">Check if you wish to make this gym your Favourite Gym</string>
+    <string name="new_gym_btn_add">Add Gym</string>
+    <string name="new_gym_prov_spin_lbl">Country Select List</string>
+    <string name="new_gym_cntry_spin_lbl">Province Select List</string>
+    <string name="create_acc_sv">Main Create Account Scroll View</string>
+    <string name="create_acc_fn">First Name</string>
+    <string name="create_acc_ln">Last Name</string>
+    <string name="create_acc_em">Email</string>
+    <string name="create_acc_cem">Confirm Email</string>
+    <string name="create_acc_pw">Password</string>
+    <string name="create_acc_cpw">Confirm Password</string>
+    <string name="create_acc_btn">Create Account</string>
+    <string name="email_confirmation_lbl">Email Confirmation</string>
+    <string name="email_confirmation_info">In order to access your account you must verify your email address with the code sent. Please enter the code in the field below to proceed.</string>
+    <string name="email_confirmation_send">Re-send Code</string>
+    <string name="email_confirmation_code">Validation Code</string>
+    <string name="email_confirmation_submit">Validate Code</string>
+    <string name="tos_back">Back</string>
+
+    <string name="workout_new_lbl">New Workout</string>
+    <string name="workout_new_name_fld">Workout Name</string>
+    <string name="workout_new_wt_btn">Weighted</string>
+    <string name="workout_new_td_btn">Timed</string>
+    <string name="workout_new_ac_lvl">Activated Muscles:</string>
+    <string name="workout_new_ml_lvl">Muscle List:</string>
+    <string name="workout_new_ps_lvl">Photos:</string>
+    <string name="workout_new_wd_lvl">Workout Description</string>
+    <string name="workout_new_aw_lvl">Add Workout</string>
+    <string name="workout_ms_cd">Muscle Dropdown</string>
+    <string name="workout_eq_cd">Equipment Dropdown</string>
+    <string name="workout_wt_cd">Workout Type Dropdown</string>
+    <string name="workout_main_sv_cd">Main Workout Scroll</string>
+
+    <string name="wrk_new_photo_1">Photo Upload One</string>
+    <string name="wrk_new_photo_2">Photo Upload Two</string>
+    <string name="wrk_new_photo_3">Photo Upload Three</string>
+    <string name="wrk_new_muscle_vsv">Listed Muscle Scroll</string>
+    <string name="wrk_new_muscle_hsv">Added Muscle Scroll</string>
+    <string name="wrk_new_eq_vsv">Listed Equipment Scroll</string>
+    <string name="wrk_new_eq_hsv">Added Equipment Scroll</string>
+    <string name="wrk_new_add_btn">Create</string>
+    <string name="wrk_new_equip_dd">Equipment Dropdown</string>
+    <string name="wrk_new_eq_lbl">Added Equipment:</string>
+    <string name="wrk_new_el_lbl">Equipment List:</string>
+
+    <string name="mealplan_lbl">Meal Planning</string>
+
+    <string name="rtn_main_lbl">Routines</string>
+    <string name="rtn_new_name_cd">Routine Name</string>
+    <string name="rtn_new_lbl">New Routine</string>
+    <string name="rtn_new_crt_btn">Create Routine</string>
+    <string name="rtn_new_sl_lbl">Selected Workouts:</string>
+    <string name="rtn_new_wl_lbl">Workout List:</string>
+    <string name="rtn_wl_scrl">Routine Scroll:</string>
+    <string name="rtn_new_sv_add_cd">Added Workout Scroll</string>
+    <string name="rtn_new_sv_list_cd">Listed Workout Scroll</string>
+    <string name="rtn_new_gym_sp">Gym Select List</string>
+
+    <string name="spt_main_lbl">Splits</string>
+    <string name="spt_new_lbl">New Split</string>
+    <string name="spt_name_field">Split Name</string>
+    <string name="spt_d_lbl">Split Days:</string>
+    <string name="spt_td_lbl">Times:</string>
+    <string name="spt_td_spin">Times Dropdown</string>
+    <string name="spt_d_spin">Days Dropdown</string>
+    <string name="spt_s_scroll">Split Days and Times</string>
+    <string name="spt_main_s_scroll">Split List</string>
+    <string name="spt_main_new">Create Split</string>
+
+    <string name="rtn_gym_label">Gym:</string>
+    <string name="rtn_wo_label">Workouts:</string>
+    <string name="rtn_tm_label">Targeted Muscle:</string>
+    <string name="rtn_bygym_label">ByGym</string>
+
+    <string name="dcal_add_workout">Add Workout</string>
+    <string name="cal_add_split">Add Split</string>
+
+    <string name="dcal_new_close">Close</string>
+    <string name="dcal_new_add">Add</string>
+
+    <string name="dcal_next_day">Next Day</string>
+    <string name="dcal_prev_day">Previous Day</string>
+
+    <string name="dcal_set_routine">Set Routine</string>
+    <string name="dcal_workout_sv">Daily Workout list</string>
+
+    <string name="cal_next_month">Next Month</string>
+    <string name="cal_prev_month">Previous Month</string>
+
+    <string name="cal_label_sun">Sun</string>
+    <string name="cal_label_mon">Mon</string>
+    <string name="cal_label_tues">Tues</string>
+    <string name="cal_label_wed">Wed</string>
+    <string name="cal_label_thurs">Thurs</string>
+    <string name="cal_label_fri">Fri</string>
+    <string name="cal_label_sat">Sat</string>
+
+    <string name="dcal_label_sets">Sets</string>
+    <string name="dcal_label_reps">Reps</string>
+    <string name="dcal_label_weight">Weight</string>
+</resources>

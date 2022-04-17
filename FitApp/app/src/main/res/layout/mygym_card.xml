@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/gym_card">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/gym_logo_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Gym Logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/gym_label_field"
+                android:layout_width="190dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:text="TextView"
+                android:textSize="22sp"
+                app:layout_constraintStart_toEndOf="@+id/gym_logo_img"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/gym_eq_label"
+                android:layout_width="87dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/gymcard_equip"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/gym_logo_img"
+                app:layout_constraintTop_toBottomOf="@+id/gym_label_field" />
+
+            <TextView
+                android:id="@+id/gym_hours_field"
+                android:layout_width="190dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/gymcard_equip"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/gym_logo_img"
+                app:layout_constraintTop_toBottomOf="@+id/gym_eq_label" />
+
+            <TextView
+                android:id="@+id/gym_equipment_number"
+                android:layout_width="31dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/gym_eq_label"
+                app:layout_constraintTop_toBottomOf="@+id/gym_label_field" />
+
+            <ImageButton
+                android:id="@+id/fav_gym_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="Set Favourite"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_star_empty" />
+
+            <ImageButton
+                android:id="@+id/edit_gym_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="Edit Gym"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fav_gym_btn"
+                app:srcCompat="@drawable/ic_settings" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
