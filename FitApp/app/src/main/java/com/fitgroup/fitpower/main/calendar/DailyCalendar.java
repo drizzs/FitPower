@@ -3,8 +3,11 @@ package com.fitgroup.fitpower.main.calendar;
 import static com.fitgroup.fitpower.utils.StaticVar.selectedCalendarDate;
 import static java.util.Calendar.*;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,6 +45,8 @@ public class DailyCalendar extends NavActivity {
 
     private TextView dayLabel;
 
+    private EditText searchField;
+
     private LinearLayout addWorkoutList;
 
     private final Map<Integer, DailyWorkout> dailyWorkouts = new HashMap<>();
@@ -50,19 +55,22 @@ public class DailyCalendar extends NavActivity {
     private final Map<Integer, Equipment> allEquipment = new HashMap<>();
     private final Map<Integer, Muscle> allMuscles = new HashMap<>();
 
-    private int addWorkoutSid;
+    private int addWorkoutSid = 0;
     private int addSets;
     private int addReps;
+    private int addWeight;
 
-    private int addSuperSetWorkoutSid;
+    private int addSuperSetWorkoutSid = 0;
     private int addSuperSetSets;
     private int addSuperSetReps;
-
-    private String superSetUUID;
+    private int addSuperSetWeight;
 
     private Spinner eqSpin;
     private Spinner muscSpin;
     private Spinner extraSpin;
+
+    private int selectedEquipment;
+    private int selectedMuscle;
 
     public DailyCalendar() {
         super(R.id.dailycalendar_drawer, R.id.dailycalendar_nav,R.layout.activity_dailycalendar);
@@ -79,12 +87,60 @@ public class DailyCalendar extends NavActivity {
         eqSpin = findViewById(R.id.dcal_add_eq_spin);
         muscSpin = findViewById(R.id.dcal_add_musc_spin);
         extraSpin = findViewById(R.id.dcal_add_extra_spin);
+        searchField = findViewById(R.id.dcal_wrkout_search);
+
+        searchField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                addWorkoutsToList();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+
+        });
+
 
         ImageButton nextDay = findViewById(R.id.cal_next_btn);
         nextDay.setOnClickListener(view -> nextDay());
 
         ImageButton prevDay = findViewById(R.id.cal_prev_btn);
         prevDay.setOnClickListener(view -> previousDay());
+
+        eqSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String string = adapterView.getItemAtPosition(i).toString();
+                selectedEquipment = getEquipmentSID(string);
+                addWorkoutsToList();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        muscSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String string = adapterView.getItemAtPosition(i).toString();
+                selectedMuscle = getMuscleGroupSID(string);
+                addWorkoutsToList();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         setButtons();
 
@@ -99,7 +155,7 @@ public class DailyCalendar extends NavActivity {
 
         addWorkoutBtn.setOnClickListener(view -> openAddWorkout());
         closeAddWorkoutBtn.setOnClickListener(view -> closeAddWorkout());
-        openAddWorkoutBtn.setOnClickListener(view -> addWorkoutToDay(addWorkoutSid,addSets,addReps));
+        openAddWorkoutBtn.setOnClickListener(view -> addWorkoutToDay());
 
     }
 
@@ -136,12 +192,17 @@ public class DailyCalendar extends NavActivity {
 
     }
 
-    private JSONObject AddWorkoutToDayJson(int workoutSID,int sets,int reps){
+    private JSONObject AddWorkoutToDayJson(){
         JSONObject obj = getBasicSIDJson();
         try {
-            obj.put("NewWorkout",workoutSID);
-            obj.put("Sets",sets);
-            obj.put("Reps",reps);
+            obj.put("NewWorkoutSID",addWorkoutSid);
+            obj.put("Sets",addSets);
+            obj.put("Reps",addReps);
+            obj.put("Weight",addWeight);
+            obj.put("NewSuperSetWorkoutSID",addSuperSetWorkoutSid);
+            obj.put("SuperSetSets",addSuperSetSets);
+            obj.put("SuperSetReps",addSuperSetReps);
+            obj.put("SuperSetWeight",addSuperSetWeight);
             obj.put("WorkoutDay",dayMonthYearFromDateJson());
         } catch (JSONException e) {
             e.printStackTrace();
@@ -157,14 +218,13 @@ public class DailyCalendar extends NavActivity {
         return new SimpleDateFormat("MMMM dd yyyy", Locale.CANADA).format(selectedCalendarDate.getTime());
     }
 
-    private void addWorkoutToDay(int workoutSID,int sets,int reps){
-
-        getObjectFromPost("https://fitrickapi.azurewebsites.net/calendar/insert/workout",AddWorkoutToDayJson(workoutSID,sets,reps),1);
+    private void addWorkoutToDay(){
+        getObjectFromPost("https://fitrickapi.azurewebsites.net/calendar/insert/dailyworkout",AddWorkoutToDayJson(),1);
     }
 
     private void updateRoutineWorkouts(JSONObject obj){
         try {
-            JSONArray array = obj.getJSONArray("");
+            JSONArray array = obj.getJSONArray("DailyWorkouts");
 
             for(int i = 0; i < array.length(); i++){
 
@@ -174,7 +234,16 @@ public class DailyCalendar extends NavActivity {
         }
     }
 
-    private CardView createWorkoutCard(String label, int workoutSID){
+    private CardView createRoutineWorkoutCard(DailyWorkout workout){
+        CardView view = new CardView(this);
+
+        return view;
+    }
+
+    private CardView createWorkoutCard(Workout workout){
+
+        String label = workout.getLabel();
+        int workoutSID = workout.getSID();
 
         CardView view = new CardView(this);
 
@@ -196,10 +265,26 @@ public class DailyCalendar extends NavActivity {
         LinearLayout weightLabelLayout = getLinearLayout(this,LinearLayout.VERTICAL);
         LinearLayout weightEditLayout = getLinearLayout(this,LinearLayout.HORIZONTAL);
 
-        EditText setsIn = getEditText(this,"1",45,48,5,0,5,5,48, Gravity.CENTER);
-        EditText repsIn = getEditText(this,"1",45,48,5,0,5,5,48, Gravity.CENTER);
+        String setsInText = "1";
+        String repsInText = "1";
+        String weightInText = "1";
+        view.setCardBackgroundColor(getResources().getColor(R.color.white));
+        if(workoutSID == addWorkoutSid){
+            setsInText = String.valueOf(addSets);
+            repsInText = String.valueOf(addReps);
+            weightInText = String.valueOf(addWeight);
+            view.setCardBackgroundColor(getResources().getColor(R.color.selected));
+        }else if(workoutSID == addSuperSetWorkoutSid){
+            setsInText = String.valueOf(addSuperSetSets);
+            repsInText = String.valueOf(addSuperSetReps);
+            weightInText = String.valueOf(addSuperSetWeight);
+            view.setCardBackgroundColor(getResources().getColor(R.color.selected));
+        }
 
-        EditText weightIn = getEditText(this,"0",45,48,5,0,5,5,48, Gravity.CENTER);
+        EditText setsIn = getEditText(this,setsInText,45,48,5,0,5,5,48, Gravity.CENTER);
+        EditText repsIn = getEditText(this,repsInText,45,48,5,0,5,5,48, Gravity.CENTER);
+
+        EditText weightIn = getEditText(this,weightInText,45,48,5,0,5,5,48, Gravity.CENTER);
 
         TextView xView = getTextView(this,"X",18,20,20,5,37,5,5, Gravity.CENTER);
 
@@ -225,7 +310,9 @@ public class DailyCalendar extends NavActivity {
         hiddenLayout.addView(repsLayout);
         hiddenLayout.addView(weightLayout);
 
-        setInvisible(hiddenLayout);
+        if(workoutSID != addSuperSetWorkoutSid && workoutSID != addWorkoutSid) {
+            setInvisible(hiddenLayout);
+        }
 
         centerLayout.addView(hiddenLayout);
 
@@ -237,22 +324,32 @@ public class DailyCalendar extends NavActivity {
                 addWorkoutSid = workoutSID;
                 addReps = 1;
                 addSets = 1;
+                addWeight = 1;
+                setsIn.setText(String.valueOf(addSets));
+                repsIn.setText(String.valueOf(addReps));
+                weightIn.setText(String.valueOf(addWeight));
                 setBackGroundColor(view,R.color.selected);
                 setVisible(hiddenLayout);
             }else if(addWorkoutSid == workoutSID){
                 addWorkoutSid = 0;
                 setBackGroundColor(view,R.color.white);
                 setInvisible(hiddenLayout);
+                addWorkoutsToList();
             }else if(addSuperSetWorkoutSid == 0){
                 addSuperSetWorkoutSid = workoutSID;
                 addSuperSetReps = 1;
-                addSuperSetSets = 2;
+                addSuperSetSets = 1;
+                addSuperSetWeight = 1;
+                setsIn.setText(String.valueOf(addSuperSetSets));
+                repsIn.setText(String.valueOf(addSuperSetReps));
+                weightIn.setText(String.valueOf(addSuperSetWeight));
                 setBackGroundColor(view,R.color.selected);
                 setVisible(hiddenLayout);
             }else if(addSuperSetWorkoutSid == workoutSID){
                 addSuperSetWorkoutSid = 0;
                 setBackGroundColor(view,R.color.white);
                 setInvisible(hiddenLayout);
+                addWorkoutsToList();
             }
         });
 
@@ -274,7 +371,7 @@ public class DailyCalendar extends NavActivity {
                 Workout workout = new Workout(workoutSID,workoutLabel,workoutDescription);
 
                 allWorkouts.put(workoutSID,workout);
-                addWorkoutList.addView(createWorkoutCard(workoutLabel,workoutSID));
+                addWorkoutList.addView(createWorkoutCard(workout));
             }
 
             array = obj.getJSONArray("Equipment");
@@ -360,6 +457,69 @@ public class DailyCalendar extends NavActivity {
         setInvisible(addWorkoutLayout);
     }
 
+    private void addWorkoutsToList(){
+        addWorkoutList.removeAllViews();
+
+        if(addWorkoutSid > 0){
+            Workout workout = allWorkouts.get(addWorkoutSid);
+            if(workout != null) {
+                addWorkoutList.addView(createWorkoutCard(workout));
+            }
+        }
+        if(addSuperSetWorkoutSid > 0){
+            Workout workout = allWorkouts.get(addSuperSetWorkoutSid);
+            if(workout != null) {
+                addWorkoutList.addView(createWorkoutCard(workout));
+            }
+        }
+
+        for(Map.Entry<Integer, Workout> workoutEntry: allWorkouts.entrySet()){
+            Workout workout = workoutEntry.getValue();
+
+            if(workout.getSID() != addSuperSetWorkoutSid || workout.getSID() != addWorkoutSid ){
+                String searchString = searchField.getText().toString();
+                if(searchString.isEmpty() || workout.getLabel().toLowerCase(Locale.ROOT).contains(searchString.toLowerCase(Locale.ROOT))) {
+                    if (selectedEquipment == 0 && selectedMuscle == 0) {
+                        addWorkoutList.addView(createWorkoutCard(workout));
+                    } else if (selectedEquipment > 0) {
+                        if (selectedMuscle > 0) {
+                            if (workout.getEquipment().contains(selectedEquipment) && workout.getMuscles().contains(selectedMuscle)) {
+                                addWorkoutList.addView(createWorkoutCard(workout));
+                            }
+                        } else if (workout.getEquipment().contains(selectedEquipment)) {
+                            addWorkoutList.addView(createWorkoutCard(workout));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private int getEquipmentSID(String label){
+        int value = 0;
+
+        for (Map.Entry<Integer, Equipment> entry: allEquipment.entrySet()){
+            Equipment eq = entry.getValue();
+            if(eq.getLabel().equals(label)){
+                value = eq.getSID();
+                break;
+            }
+        }
+        return value;
+    }
+
+    private int getMuscleGroupSID(String label){
+        int value = 0;
+
+        for (Map.Entry<Integer, Muscle> entry: allMuscles.entrySet()){
+            Muscle muscle = entry.getValue();
+            if(muscle.getLabel().equals(label)){
+                value = muscle.getSID();
+                break;
+            }
+        }
+        return value;
+    }
 
 
 }
